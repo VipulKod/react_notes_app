@@ -13,13 +13,13 @@ code {
 }
 
 .note {
-  background-color: aqua;
   border-radius: 10px;
   padding: 1rem;
   min-height: 170px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .note-footer {
@@ -43,13 +43,13 @@ code {
 }
 
 .note.new {
-  background-color: bisque;
+  background-color: rgb(209, 180, 255);
 }
 
 textarea {
   border: none;
   resize: none;
-  background-color: bisque;
+  background-color: rgb(209, 180, 255);
 }
 
 .save {
@@ -79,6 +79,7 @@ textarea:focus {
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .search input {
@@ -89,4 +90,23 @@ textarea:focus {
 
 .search input:focus {
   outline: none;
+}
+
+.palette-container {
+  display: flex;
+}
+
+.palette-unit {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.palette-unit:hover {
+  cursor: pointer;
+}
+
+.add-border {
+  border: 2px solid rgb(84, 88, 88);
 }

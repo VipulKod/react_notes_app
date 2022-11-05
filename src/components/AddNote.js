@@ -1,6 +1,7 @@
 import { useState } from "react";
+import Palette from "./Palette";
 
-const AddNote = ({ handleAddNote }) => {
+const AddNote = ({ handleAddNote, palette, selectColor, color }) => {
   const [noteText, setNoteText] = useState("");
   const characterLimit = 200;
 
@@ -28,6 +29,8 @@ const AddNote = ({ handleAddNote }) => {
       ></textarea>
       <div className="note-footer">
         <small>{characterLimit - noteText.length} Remaining</small>
+
+        <Palette palette={palette} selectColor={selectColor} color={color} />
         <button className="save" onClick={handleSaveClick}>
           Save
         </button>

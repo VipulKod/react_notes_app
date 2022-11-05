@@ -9,25 +9,35 @@ const App = () => {
       id: nanoid(),
       text: "this is my first note",
       date: "15/10/2022",
-    },
-    {
-      id: nanoid(),
-      text: "this is my second note",
-      date: "15/10/2022",
-    },
-    {
-      id: nanoid(),
-      text: "this is my third note",
-      date: "15/10/2022",
-    },
-    {
-      id: nanoid(),
-      text: "this is my fourth note",
-      date: "15/10/2022",
+      color: "#B1B2FF"
     },
   ]);
 
+  const palette = [
+    {
+      id: nanoid(),
+      color: "#B9FFF8",
+    },
+    {
+      id: nanoid(),
+      color: "#DEF5E5",
+    },
+    {
+      id: nanoid(),
+      color: "#B9E0FF",
+    },
+    {
+      id: nanoid(),
+      color: "#FFB9B9",
+    },
+    {
+      id: nanoid(),
+      color: "#B1B2FF",
+    },
+  ];
+
   const [searchText, handleSearch] = useState("");
+  const [color, setColor] = useState(palette[0]?.color);
 
   useEffect(() => {
     console.log("Initialized");
@@ -49,6 +59,7 @@ const App = () => {
       id: nanoid(),
       text: text,
       date: date.toLocaleDateString(),
+      color: color,
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
@@ -59,6 +70,11 @@ const App = () => {
     setNotes(data);
   };
 
+  const selectColor = (data) => {
+    setColor(data?.color);
+    console.log(color);
+  };
+
   return (
     <div className="container">
       <Search handleSearch={handleSearch} />
@@ -66,8 +82,11 @@ const App = () => {
         notes={notes.filter((note) =>
           note.text.toLowerCase().includes(searchText.toLowerCase())
         )}
+        color={color}
         handleAddNote={addNote}
         deleteNote={deleteNote}
+        palette={palette}
+        selectColor={selectColor}
       />
     </div>
   );
